@@ -35,23 +35,38 @@ class Queue
 end
 
 class Map
-    def set(key, value)
+    def initialize
+        @map = Array.new
+    end
 
+    def set(key, value)
+        @map.each do |sub|
+            if sub.first == key
+                sub[-1] = value
+                return true
+            end
+        end
+        @map << [key, value] 
     end
 
     def get(key)
-
+        @map.each do |sub|
+            if sub.include?(key)
+                return sub[-1]
+            end
+        end
+        return "Key does not exist"
     end
 
     def delete(key)
-
+        @map.select do |sub|
+            if sub.first != key 
+                sub
+            end
+        end
     end
 
     def show
-
-    end
-
-    def set
-
+        @map
     end
 end
