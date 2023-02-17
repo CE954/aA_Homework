@@ -4,7 +4,7 @@
     end
 
     def push(el)
-        @stack.unshift(el)
+        @stack << (el)
     end
 
     def pop
@@ -17,16 +17,20 @@
 end
 
 class Queue
-    def enqueue(ele) 
+    def initialize
+        @queue = Array.new
+    end
 
+    def enqueue(ele) 
+        @stack.unshift(el)
     end
 
     def dequeue
-
+        @stack.pop
     end
 
     def peek 
-        
+        @stack[-1]
     end
 end
 
