@@ -4,13 +4,13 @@
     end
 
     def push(el)
-        stack << (el) 
-        self #returns a stack instance, not the array
+        stack << (el) #push/<< returns the array we pushed the ele into, so we need to return self
+        self #returns the stack instance, not the array
     end
 
     def pop
         stack.pop 
-    ends
+    end
 
     def peek
        stack[-1]
@@ -34,22 +34,33 @@
     attr_reader :store
 end
 
-class Queue
+class MyQueue
+    #use MyQueue because there is already a Queue class built in to Ruby
     def initialize
-        @queue = Array.new
+        @line = Array.new
     end
 
     def enqueue(ele) 
-        @stack.unshift(el)
+        line.unshift(el) #unshift also evaluates to the array
+        self #return the MyQueue instance, not the array
     end
 
     def dequeue
-        @stack.pop
+        line.pop
     end
 
-    def peek 
-        @stack[-1]
+    def empty?
+        line.empty?
     end
+
+    def show 
+        return line.dup #will return a duplicate and not the original array.
+        #the user can manipulate the duplicate and it will not affect the original
+        #if your line has subarrays, you would need to create a "deep" dup method
+    end
+
+    private
+    attr_reader :inner_array #attr_readers also let us not have to type @ in front of instance variable
 end
 
 class Map
