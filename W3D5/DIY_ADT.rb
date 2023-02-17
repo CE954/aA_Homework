@@ -10,7 +10,7 @@
 
     def pop
         stack.pop 
-    end
+    ends
 
     def peek
        stack[-1]
@@ -23,7 +23,13 @@
     def empty?
         stack.empty?
     end
-    
+
+    def inspect
+        #we need this here so that anytime self is returned, we only show the object ID and keep instance variables private
+        "<#Stack:#{stack.object_id}>"
+        #"<#Stack: @stack=["a","b","c"]>"
+    end
+
     private #takes away the ability to get the variable outside of the class definition
     attr_reader :store
 end
