@@ -4,16 +4,28 @@
     end
 
     def push(el)
-        @stack << (el)
+        stack << (el) 
+        self #returns a stack instance, not the array
     end
 
     def pop
-        @stack.pop
+        stack.pop 
     end
 
     def peek
-       @stack[-1]
+       stack[-1]
     end
+
+    def size
+        stack.length
+    end
+
+    def empty?
+        stack.empty?
+    end
+    
+    private #takes away the ability to get the variable outside of the class definition
+    attr_reader :store
 end
 
 class Queue
