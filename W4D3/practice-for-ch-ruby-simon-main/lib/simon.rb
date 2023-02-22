@@ -30,17 +30,19 @@ class Simon
     add_random_color
   end
 
-  def require_sequence
-  end
+  # def require_sequence
+  # end
 
   def add_random_color
     @seq << COLORS.sample
   end
 
   def round_success_message
+    puts "Success!"
   end
 
   def game_over_message
+    puts "Game Over"
   end
 
   def reset_game
